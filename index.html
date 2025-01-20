@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ahsan Naveed - CS Student Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            background: #0d0d0d;
+            color: #f8f8f8;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        .hero img {
+            max-width: 50%;
+            border-radius: 10px;
+            margin-top: 1rem;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+        }
+        .card {
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+        }
+        button {
+            background: #ff00ff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        button:hover {
+            background: #ff00ffcc;
+            transform: scale(1.1);
+        }
+        .timeline ul {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline li {
+            background: #1a1a1a;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 5px solid #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul><li><strong>Ahsan Naveed</strong></li></ul>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact" role="button">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>CS Student Hub</h1>
+        <h3>Your Guide to Programming & Career Success</h3>
+        <img src="https://source.unsplash.com/featured/?coding,technology" alt="Student coding">
+    </header>
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
+            <div class="timeline">
+                <h3>Career Timeline</h3>
+                <ul>
+                    <li><strong>2023 - Present:</strong> Senior Software Engineer, Huawei</li>
+                    <li><strong>2020 - 2023:</strong> Software Engineer, AWS</li>
+                    <li><strong>2020:</strong> Software Engineer, Cisco</li>
+                    <li><strong>2019 - 2020:</strong> Software Engineer, EA Sports</li>
+                    <li><strong>Internships:</strong> LinkedIn, Tesla, IBM, BlackBerry</li>
+                </ul>
+            </div>
+        </section>
+        <section id="services">
+            <h2>My Services</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Programming Help</h3>
+                    <p>Expert assistance in Java, Python, C++, and more.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Computing</h3>
+                    <p>Learn AWS, Kubernetes, and Docker with hands-on mentoring.</p>
+                </div>
+                <div class="card">
+                    <h3>Career Coaching</h3>
+                    <p>Resume reviews, mock interviews, and LinkedIn guidance.</p>
+                </div>
+                <div class="card">
+                    <h3>Open Source Mentorship</h3>
+                    <p>Start contributing to GitHub projects and best practices.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form class="grid">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit" onclick="event.preventDefault()">Send Message</button>
+            </form>
+            <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
+        </section>
+    </main>
+    <footer>
+        <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
+    </footer>
+</body>
+</html>
