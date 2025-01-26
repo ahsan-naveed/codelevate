@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic Meta -->
+  <!-- Required meta tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -11,106 +11,116 @@
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
-  />
+/>
+  <!-- Orbitron Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet"
+/>
 
-  <!-- Inline Styles -->
+  <!-- Custom Styles -->
   <style>
-    /* Import Orbitron font for futuristic style */
-    @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
-
-    /* Global styles */
+    /***********************************************************************
+     * GLOBAL STYLES
+     ***********************************************************************/
     body {
+      margin: 0; /* Remove default margin for consistent layout */
       background: #0d0d0d;
       color: #f8f8f8;
       font-family: "Orbitron", sans-serif;
       text-transform: uppercase;
-      margin: 0; /* Reset default body margin */
     }
 
-    /* Header */
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, #ff00ff, #00ffff);
-      color: white;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    }
-
-    /* NAVIGATION */
-
-    /* 1) Common navigation layout */
+    /***********************************************************************
+     * NAVIGATION
+     ***********************************************************************/
     nav {
       background: #1a1a1a;
-      padding: 1rem;
     }
-    .nav-container {
+    .nav-wrapper {
+      /* Centers the nav and limits its max width */
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto; /* Center the nav horizontally if you want */
+      padding: 1rem;
       position: relative;
     }
-
-    /* The brand or name on the left */
+    /* Brand on the left */
     .nav-brand {
-      font-weight: bold;
-      font-size: 1.2rem;
       color: #f8f8f8;
       text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
-
-    /* Navigation links in a row by default (desktop) */
+    /* Hamburger menu button: hidden on desktop */
+    .menu-toggle {
+      margin-left: auto; /* push hamburger to right side */
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #f8f8f8;
+      display: none; /* only appears on mobile below */
+      cursor: pointer;
+    }
+    /* Nav links in a row on desktop */
     .nav-links {
-      display: flex;
-      gap: 1.5rem;
       list-style: none;
-      margin: 0; /* Remove default UL margin */
+      display: flex; /* default: show them in a row on desktop */
+      gap: 1rem;
+      margin: 0;
       padding: 0;
-      align-items: center;
     }
     .nav-links li a {
       color: #f8f8f8;
       text-decoration: none;
     }
 
-    /* Hide the hamburger by default (desktop) */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 24px;
-      color: #f8f8f8;
-      cursor: pointer;
-    }
-
-    /* 2) Mobile styles (max-width: 768px) */
+    /* MEDIA QUERIES */
     @media (max-width: 768px) {
-      /* Show hamburger icon */
+      /* Show hamburger, hide link row by default */
       .menu-toggle {
-        display: block;
+        display: block; /* show hamburger on mobile */
       }
-
-      /* Hide nav links by default */
       .nav-links {
-        display: none; /* Hide until toggled */
+        display: none; /* hide on mobile until toggled */
+        position: absolute;
+        top: 65px; /* below the nav bar */
+        right: 1rem;
         flex-direction: column;
         background: #1a1a1a;
-        position: absolute;
-        top: 60px;
-        right: 1rem;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         padding: 1rem;
         gap: 1rem;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
       }
-
-      /* Expand on .active */
+      /* When .active, show the nav links */
       .nav-links.active {
         display: flex;
       }
     }
 
-    /* Hero Section */
+    @media (min-width: 769px) {
+      /* On desktop, hamburger stays hidden */
+      .menu-toggle {
+        display: none;
+      }
+      /* Keep nav links displayed */
+      .nav-links {
+        display: flex;
+        margin-left: auto; /* push them to the far right */
+      }
+    }
+
+    /***********************************************************************
+     * HEADER / HERO
+     ***********************************************************************/
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #ff00ff, #00ffff);
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
     .hero {
       display: flex;
       justify-content: center;
@@ -132,13 +142,23 @@
         0 0 70px rgba(0, 255, 255, 0.8);
     }
 
-    /* Grid layout for cards */
+    /***********************************************************************
+     * MAIN CONTENT
+     ***********************************************************************/
+    main.container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem; /* some spacing around content */
+    }
+
+    /* Grid layout for card sections */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      padding: 3rem;
+      padding: 3rem 0;
     }
+
     .card {
       padding: 2rem;
       background: #1a1a1a;
@@ -152,7 +172,6 @@
       box-shadow: 0 0 25px rgba(0, 255, 255, 1);
     }
 
-    /* Button styles */
     button {
       background: #ff00ff;
       color: white;
@@ -168,7 +187,9 @@
       transform: scale(1.1);
     }
 
-    /* Timeline section */
+    /***********************************************************************
+     * TIMELINE
+     ***********************************************************************/
     .timeline {
       position: relative;
       padding-left: 30px;
@@ -186,6 +207,7 @@
     .timeline ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     .timeline li {
       background: #1a1a1a;
@@ -206,7 +228,9 @@
       text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
     }
 
-    /* Roadmap Section */
+    /***********************************************************************
+     * ROADMAP
+     ***********************************************************************/
     .roadmap-container {
       display: flex;
       justify-content: center;
@@ -243,7 +267,6 @@
       margin: 0;
       font-size: 12px;
       color: #f8f8f8;
-      text-transform: uppercase;
     }
     .step:hover {
       transform: scale(1.1);
@@ -266,7 +289,9 @@
       }
     }
 
-    /* Footer Styles */
+    /***********************************************************************
+     * FOOTER
+     ***********************************************************************/
     footer {
       text-align: center;
       padding: 2rem;
@@ -277,16 +302,16 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <nav>
-    <div class="nav-container">
-      <!-- Brand/Logo on the left -->
+    <div class="nav-wrapper">
+      <!-- Brand on the left -->
       <a href="#" class="nav-brand">Ahsan Naveed</a>
 
-      <!-- Hamburger Button for mobile -->
+      <!-- Hamburger button (visible on mobile only) -->
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
 
-      <!-- Navigation Links -->
+      <!-- Navigation links -->
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -298,27 +323,21 @@
     </div>
   </nav>
 
-  <!-- Header / Hero -->
+  <!-- HEADER / HERO -->
   <header>
     <h1>COD/ELEVATE</h1>
     <h3>Your Guide to Programming & Career Success</h3>
     <div class="hero">
-      <img src="logo2.webp" alt="Student coding" />
+      <img src="logo2.webp" alt="Student coding">
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- MAIN CONTENT -->
   <main class="container">
-    <!-- About Section -->
+    <!-- ABOUT SECTION -->
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        I'm Ahsan Naveed, a software engineer with extensive experience in cloud
-        computing, distributed systems, and backend development. I enjoy
-        mentoring CS students and helping them advance in their careers.
-      </p>
-
-      <!-- Timeline -->
+      <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
       <div class="timeline">
         <h3>Career Timeline</h3>
         <ul>
@@ -331,7 +350,7 @@
       </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- SERVICES SECTION -->
     <section id="services">
       <h2>My Services</h2>
       <div class="grid">
@@ -350,11 +369,10 @@
       </div>
     </section>
 
-    <!-- Roadmap (How It Works) -->
+    <!-- HOW IT WORKS (ROADMAP) -->
     <section id="how-it-works">
       <h2>How This Works</h2>
       <p>My mentorship follows a structured roadmap to help you succeed.</p>
-
       <div class="roadmap-container">
         <div class="roadmap">
           <div class="step">
@@ -385,70 +403,71 @@
       </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- PRICING SECTION -->
     <section id="pricing">
       <h2>Pricing Plans</h2>
       <div class="grid">
         <div class="card">
           <h3>1-Hour Mentorship Session</h3>
-          <p>
-            Get expert guidance on programming, cloud computing, or career
-            coaching.
-          </p>
+          <p>Get expert guidance on programming, cloud computing, or career coaching.</p>
           <strong>PKR 20,000</strong>
         </div>
         <div class="card">
           <h3>5-Hour Package (Save 10%)</h3>
-          <p>
-            Ideal for long-term mentorship and deeper technical learning.
-          </p>
+          <p>Ideal for long-term mentorship and deeper technical learning.</p>
           <strong>PKR 90,000</strong>
         </div>
         <div class="card">
           <h3>Monthly Plan (Best Value)</h3>
-          <p>
-            Custom pricing for ongoing career mentorship &amp; technical
-            training.
-          </p>
+          <p>Custom pricing for ongoing career mentorship &amp; technical training.</p>
           <strong>Contact for Details</strong>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT SECTION -->
     <section id="contact">
       <h2>Contact Me</h2>
       <form class="grid">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <button type="submit" onclick="event.preventDefault()">Send Message</button>
-      </form>
-      <p>
-        Connect with me on
-        <a href="https://linkedin.com/in/ahsannaveed" target="_blank"
-          >LinkedIn</a
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+        <button
+          type="submit"
+          onclick="event.preventDefault()"
         >
-      </p>
+          Send Message
+        </button>
+      </form>
+      <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript for Menu Toggle -->
   <script>
-    // Get references to button and nav-links
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
-    // When hamburger is clicked, toggle 'active' class on the nav-links
+    // Toggle the .active class on nav-links when hamburger is clicked
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
 
-    // Close the menu when a link is clicked (mobile behavior)
+    // Close the menu if a link is clicked (mobile)
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("active");
