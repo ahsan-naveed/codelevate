@@ -433,12 +433,40 @@
         <!-- Contact Section -->
         <section id="contact">
             <h2>Contact Me</h2>
-            <form class="grid">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <button type="submit" onclick="event.preventDefault()">Send Message</button>
+        
+            <!-- Contact Form -->
+            <form id="contact-form" class="grid">
+                <!-- Name Input -->
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+                <!-- Email Input -->
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+                <!-- Select Service -->
+                <label for="service">Select Service</label>
+                <select id="service" name="service" required>
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="Programming Help">Programming Help (Java, Python, C++)</option>
+                    <option value="Career Coaching">Career Coaching (Resume, LinkedIn, Mock Interviews)</option>
+                    <option value="Open Source Mentorship">Open Source Mentorship (GitHub, Contributions)</option>
+                </select>
+        
+                <!-- Message Input -->
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Write your inquiry here..." rows="4" required></textarea>
+        
+                <!-- Send Message Button -->
+                <button type="submit">Send Inquiry</button>
             </form>
-            <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
+        
+            <!-- Social Links -->
+            <p>Connect with me on 
+                <a href="https://linkedin.com/in/ahsannaveed" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </p>
         </section>
     </main>
 
@@ -462,6 +490,36 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+
+        // Handle contact form submission
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const service = document.getElementById("service").value;
+            const message = document.getElementById("message").value.trim();
+    
+            if (!name || !email || !service || !message) {
+                alert("❌ Please fill in all fields.");
+                return;
+            }
+    
+            // Construct the mailto: URL with a relevant inquiry subject and body
+            const mailtoLink = `mailto:ahsannaveed007@gmail.com
+                ?subject=Inquiry About ${encodeURIComponent(service)} - ${name}
+                &body=Dear Ahsan,%0D%0D
+                I am ${name} and I am interested in your service: "${service}".%0D%0D
+                My Email: ${email}%0D%0D
+                Inquiry Details:%0D
+                ${encodeURIComponent(message)}%0D%0D
+                Looking forward to your response.%0D%0D
+                Best Regards,%0D
+                ${name}`;
+    
+            // Open the user's default email app
+            window.location.href = mailtoLink;
         });
     </script>
 </body>
