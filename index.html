@@ -1,445 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags to ensure responsiveness on mobile devices -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Ahsan Naveed - COD/ELEVATE</title>
+  <!-- Basic Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Pico CSS for minimal, modern styling -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <title>Ahsan Naveed - COD/ELEVATE</title>
 
-    <!-- Inline Styles for custom look & feel -->
-    <style>
-        /* Google Font for futuristic style */
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+  <!-- Pico CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+  />
 
-        /* Global styles */
-        body {
-            background: #0d0d0d;
-            color: #f8f8f8;
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            margin: 0; /* Remove default body margin for consistent layout */
-        }
+  <!-- Inline Styles -->
+  <style>
+    /* Import Orbitron font for futuristic style */
+    @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
-        /* Header Styles */
-        header {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #ff00ff, #00ffff);
-            color: white;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        }
+    /* Global styles */
+    body {
+      background: #0d0d0d;
+      color: #f8f8f8;
+      font-family: "Orbitron", sans-serif;
+      text-transform: uppercase;
+      margin: 0; /* Reset default body margin */
+    }
 
-        /* Navigation Bar Container */
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            position: relative;
-        }
-        
-        /* Navigation Links (desktop & mobile default) */
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            padding: 0;
-        }
-        
-        /* Desktop Hover Dropdown */
-        @media (min-width: 769px) {
-            .nav-links {
-                position: absolute;
-                background: #1a1a1a;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                max-height: 0;
-                overflow: hidden;
-                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-                transition: max-height 0.3s ease-in-out;
-            }
+    /* Header */
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #ff00ff, #00ffff);
+      color: white;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
 
-            /* Show nav-links when hovering over nav-container or nav-links */
-            .nav-container:hover + .nav-links,
-            .nav-links:hover {
-                max-height: 500px;
-            }
-        }
-        
-        /* Mobile Menu Styles */
-        @media (max-width: 768px) {
-            /* Hamburger Button */
-            .menu-toggle {
-                display: block;
-                background: none;
-                border: none;
-                font-size: 24px;
-                color: #f8f8f8;
-                cursor: pointer;
-                position: absolute;
-                right: 1rem;
-                top: 1rem;
-            }
-        
-            /* Collapsed nav-links by default */
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background: #1a1a1a;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-in-out;
-            }
-        
-            /* Expanded nav-links when toggled */
-            .nav-links.active {
-                max-height: 400px;
-            }
-        }
-        
-        /* Hero Section */
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .hero img {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 1rem;
-            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7), 0 0 50px rgba(0, 255, 255, 0.5);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .hero img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 40px rgba(255, 0, 255, 1), 0 0 70px rgba(0, 255, 255, 0.8);
-        }
-        
-        /* Section Grid Layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 3rem;
-        }
+    /* NAVIGATION */
 
-        /* Card Styles */
-        .card {
-            padding: 2rem;
-            background: #1a1a1a;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        .card:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
-        }
+    /* 1) Common navigation layout */
+    nav {
+      background: #1a1a1a;
+      padding: 1rem;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto; /* Center the nav horizontally if you want */
+      position: relative;
+    }
 
-        /* Button Styles */
-        button {
-            background: #ff00ff;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-        button:hover {
-            background: #ff00ffcc;
-            transform: scale(1.1);
-        }
+    /* The brand or name on the left */
+    .nav-brand {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #f8f8f8;
+      text-decoration: none;
+    }
 
-        /* Timeline Section */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10px;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #ff00ff, #00ffff);
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-        }
-        .timeline ul {
-            list-style: none;
-            padding: 0;
-        }
-        .timeline li {
-            background: #1a1a1a;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-        .timeline li::before {
-            content: '•';
-            position: absolute;
-            left: -22px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            color: #00ffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-        }
+    /* Navigation links in a row by default (desktop) */
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0; /* Remove default UL margin */
+      padding: 0;
+      align-items: center;
+    }
+    .nav-links li a {
+      color: #f8f8f8;
+      text-decoration: none;
+    }
 
-        /* Roadmap Section */
-        .roadmap-container {
-            display: flex;
-            justify-content: center;
-            margin: 3rem 0;
-        }
-        
-        .roadmap {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .step {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background: #1a1a1a;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 10px;
-        }
-        
-        .step h3 {
-            margin: 0;
-            font-size: 24px;
-            color: #00ffff;
-        }
-        
-        .step p {
-            margin: 0;
-            font-size: 12px;
-            color: #f8f8f8;
-            text-transform: uppercase;
-        }
-        
-        .step:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
-        }
-        
-        .connector {
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #ff00ff, #00ffff);
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-        }
-        
-        @media (max-width: 768px) {
-            .roadmap {
-                flex-direction: column;
-            }
-            .connector {
-                width: 4px;
-                height: 40px;
-                background: linear-gradient(180deg, #ff00ff, #00ffff);
-            }
-        }
+    /* Hide the hamburger by default (desktop) */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #f8f8f8;
+      cursor: pointer;
+    }
 
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #ff00ff, #00ffff);
-            color: white;
-        }
-    </style>
+    /* 2) Mobile styles (max-width: 768px) */
+    @media (max-width: 768px) {
+      /* Show hamburger icon */
+      .menu-toggle {
+        display: block;
+      }
+
+      /* Hide nav links by default */
+      .nav-links {
+        display: none; /* Hide until toggled */
+        flex-direction: column;
+        background: #1a1a1a;
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+
+      /* Expand on .active */
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .hero img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 1rem;
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.7),
+        0 0 50px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .hero img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 0, 255, 1),
+        0 0 70px rgba(0, 255, 255, 0.8);
+    }
+
+    /* Grid layout for cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+    }
+    .card {
+      padding: 2rem;
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+    }
+
+    /* Button styles */
+    button {
+      background: #ff00ff;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    button:hover {
+      background: #ff00ffcc;
+      transform: scale(1.1);
+    }
+
+    /* Timeline section */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #ff00ff, #00ffff);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+    .timeline ul {
+      list-style: none;
+      padding: 0;
+    }
+    .timeline li {
+      background: #1a1a1a;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    .timeline li::before {
+      content: "•";
+      position: absolute;
+      left: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #00ffff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+
+    /* Roadmap Section */
+    .roadmap-container {
+      display: flex;
+      justify-content: center;
+      margin: 3rem 0;
+    }
+    .roadmap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .step {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px;
+    }
+    .step h3 {
+      margin: 0;
+      font-size: 24px;
+      color: #00ffff;
+    }
+    .step p {
+      margin: 0;
+      font-size: 12px;
+      color: #f8f8f8;
+      text-transform: uppercase;
+    }
+    .step:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+    }
+    .connector {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+    @media (max-width: 768px) {
+      .roadmap {
+        flex-direction: column;
+      }
+      .connector {
+        width: 4px;
+        height: 40px;
+        background: linear-gradient(180deg, #ff00ff, #00ffff);
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #ff00ff, #00ffff);
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="container-fluid">
-        <div class="nav-container">
-            <strong>Ahsan Naveed</strong>
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#contact">Contact</a></li>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <!-- Brand/Logo on the left -->
+      <a href="#" class="nav-brand">Ahsan Naveed</a>
+
+      <!-- Hamburger Button for mobile -->
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header / Hero -->
+  <header>
+    <h1>COD/ELEVATE</h1>
+    <h3>Your Guide to Programming & Career Success</h3>
+    <div class="hero">
+      <img src="logo2.webp" alt="Student coding" />
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm Ahsan Naveed, a software engineer with extensive experience in cloud
+        computing, distributed systems, and backend development. I enjoy
+        mentoring CS students and helping them advance in their careers.
+      </p>
+
+      <!-- Timeline -->
+      <div class="timeline">
+        <h3>Career Timeline</h3>
+        <ul>
+          <li><strong>2023 - Present:</strong> Senior Software Engineer, Huawei</li>
+          <li><strong>2020 - 2023:</strong> Software Engineer, AWS</li>
+          <li><strong>2020:</strong> Software Engineer, Cisco</li>
+          <li><strong>2019 - 2020:</strong> Software Engineer, EA Sports</li>
+          <li><strong>Internships:</strong> LinkedIn, Tesla, IBM, BlackBerry</li>
         </ul>
-    </nav>
+      </div>
+    </section>
 
-    <!-- Header / Hero -->
-    <header>
-        <h1>COD/ELEVATE</h1>
-        <h3>Your Guide to Programming & Career Success</h3>
-        <div class="hero">
-            <img src="logo2.webp" alt="Student coding">
+    <!-- Services Section -->
+    <section id="services">
+      <h2>My Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Programming Help</h3>
+          <p>Expert assistance in Java, Python, C++, and more.</p>
         </div>
-    </header>
+        <div class="card">
+          <h3>Career Coaching</h3>
+          <p>Resume reviews, mock interviews, and LinkedIn guidance.</p>
+        </div>
+        <div class="card">
+          <h3>Open Source Mentorship</h3>
+          <p>Start contributing to GitHub projects and best practices.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
-            
-            <!-- Career Timeline -->
-            <div class="timeline">
-                <h3>Career Timeline</h3>
-                <ul>
-                    <li><strong>2023 - Present:</strong> Senior Software Engineer, Huawei</li>
-                    <li><strong>2020 - 2023:</strong> Software Engineer, AWS</li>
-                    <li><strong>2020:</strong> Software Engineer, Cisco</li>
-                    <li><strong>2019 - 2020:</strong> Software Engineer, EA Sports</li>
-                    <li><strong>Internships:</strong> LinkedIn, Tesla, IBM, BlackBerry</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Services Section -->
-        <section id="services">
-            <h2>My Services</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Programming Help</h3>
-                    <p>Expert assistance in Java, Python, C++, and more.</p>
-                </div>
-                <div class="card">
-                    <h3>Career Coaching</h3>
-                    <p>Resume reviews, mock interviews, and LinkedIn guidance.</p>
-                </div>
-                <div class="card">
-                    <h3>Open Source Mentorship</h3>
-                    <p>Start contributing to GitHub projects and best practices.</p>
-                </div>
-            </div>
-        </section>
+    <!-- Roadmap (How It Works) -->
+    <section id="how-it-works">
+      <h2>How This Works</h2>
+      <p>My mentorship follows a structured roadmap to help you succeed.</p>
 
-        <!-- How It Works Section / Roadmap -->
-        <section id="how-it-works">
-            <h2>How This Works</h2>
-            <p>My mentorship follows a structured roadmap to help you succeed.</p>
-        
-            <div class="roadmap-container">
-                <div class="roadmap">
-                    <div class="step">
-                        <h3>1</h3>
-                        <p>Choose Your Path</p>
-                    </div>
-                    <div class="connector"></div>
-                    <div class="step">
-                        <h3>2</h3>
-                        <p>Schedule a Session</p>
-                    </div>
-                    <div class="connector"></div>
-                    <div class="step">
-                        <h3>3</h3>
-                        <p>Hands-on Learning</p>
-                    </div>
-                    <div class="connector"></div>
-                    <div class="step">
-                        <h3>4</h3>
-                        <p>Get Feedback</p>
-                    </div>
-                    <div class="connector"></div>
-                    <div class="step">
-                        <h3>5</h3>
-                        <p>Achieve Goals</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-        <!-- Pricing Section -->
-        <section id="pricing">
-            <h2>Pricing Plans</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>1-Hour Mentorship Session</h3>
-                    <p>Get expert guidance on programming, cloud computing, or career coaching.</p>
-                    <strong>PKR 20,000</strong>
-                </div>
-                <div class="card">
-                    <h3>5-Hour Package (Save 10%)</h3>
-                    <p>Ideal for long-term mentorship and deeper technical learning.</p>
-                    <strong>PKR 90,000</strong>
-                </div>
-                <div class="card">
-                    <h3>Monthly Plan (Best Value)</h3>
-                    <p>Custom pricing for ongoing career mentorship & technical training.</p>
-                    <strong>Contact for Details</strong>
-                </div>
-            </div>
-        </section>
+      <div class="roadmap-container">
+        <div class="roadmap">
+          <div class="step">
+            <h3>1</h3>
+            <p>Choose Your Path</p>
+          </div>
+          <div class="connector"></div>
+          <div class="step">
+            <h3>2</h3>
+            <p>Schedule a Session</p>
+          </div>
+          <div class="connector"></div>
+          <div class="step">
+            <h3>3</h3>
+            <p>Hands-on Learning</p>
+          </div>
+          <div class="connector"></div>
+          <div class="step">
+            <h3>4</h3>
+            <p>Get Feedback</p>
+          </div>
+          <div class="connector"></div>
+          <div class="step">
+            <h3>5</h3>
+            <p>Achieve Goals</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form class="grid">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <button type="submit" onclick="event.preventDefault()">Send Message</button>
-            </form>
-            <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
-        </section>
-    </main>
+    <!-- Pricing Section -->
+    <section id="pricing">
+      <h2>Pricing Plans</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1-Hour Mentorship Session</h3>
+          <p>
+            Get expert guidance on programming, cloud computing, or career
+            coaching.
+          </p>
+          <strong>PKR 20,000</strong>
+        </div>
+        <div class="card">
+          <h3>5-Hour Package (Save 10%)</h3>
+          <p>
+            Ideal for long-term mentorship and deeper technical learning.
+          </p>
+          <strong>PKR 90,000</strong>
+        </div>
+        <div class="card">
+          <h3>Monthly Plan (Best Value)</h3>
+          <p>
+            Custom pricing for ongoing career mentorship &amp; technical
+            training.
+          </p>
+          <strong>Contact for Details</strong>
+        </div>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
-    </footer>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form class="grid">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit" onclick="event.preventDefault()">Send Message</button>
+      </form>
+      <p>
+        Connect with me on
+        <a href="https://linkedin.com/in/ahsannaveed" target="_blank"
+          >LinkedIn</a
+        >
+      </p>
+    </section>
+  </main>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+  <!-- Footer -->
+  <footer>
+    <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
+  </footer>
 
-        // Toggle the "active" class to open/close the mobile menu
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
+  <!-- JavaScript -->
+  <script>
+    // Get references to button and nav-links
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-        // Close menu when a link is clicked (for mobile users)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    // When hamburger is clicked, toggle 'active' class on the nav-links
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Close the menu when a link is clicked (mobile behavior)
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+  </script>
 </body>
 </html>
