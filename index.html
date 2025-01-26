@@ -136,57 +136,62 @@
 
             /* Contact form */
             #contact {
-                max-width: 600px;  /* Restrict form width on large screens */
-                margin: 0 auto;  /* Center form horizontally */
-                padding: 2rem;  /* Add space around the form */
-                text-align: center;  /* Center headings */
+                max-width: 900px; 
+                margin: 0 auto;  /* Center the form */
+                padding: 2rem;
+                text-align: center;
             }
-        
-            /* Contact Form Layout for Desktop */
+
+            /* Contact Form Layout */
             #contact-form {
                 display: grid;
-                grid-template-columns: 1fr 1fr;  /* Two columns */
-                gap: 1rem;  /* Spacing between fields */
+                grid-template-columns: 1fr 1fr;  /* Two-column layout */
+                gap: 1.5rem;  /* Increase spacing */
                 align-items: center;
             }
-        
-            /* Make message input span both columns */
-            #contact-form textarea {
-                grid-column: span 2;
-            }
-        
-            /* Full width for inputs */
+
+            /* Ensure inputs, selects, and textareas are properly sized */
             #contact-form input,
             #contact-form select,
             #contact-form textarea {
                 width: 100%;
-                padding: 0.8rem;
+                padding: 1rem;
+                font-size: 1rem;
                 border: 1px solid #444;
                 border-radius: 5px;
-                font-size: 1rem;
                 background: #111;
                 color: #f8f8f8;
+                box-sizing: border-box; /* Prevent overflow issues */
             }
-        
-            /* Adjust button styling */
+
+            /* Make message input span full width */
+            #contact-form textarea {
+                grid-column: span 2;
+            }
+
+            /* Improve button sizing */
             #contact-form button {
-                grid-column: span 2;  /* Make button full-width */
-                padding: 1rem;
+                grid-column: span 2;  /* Make button full width */
+                width: 100%;
+                padding: 1.2rem;
+                font-size: 1.1rem; /* Ensure button text isn’t too small */
                 background: #ff00ff;
-                color: white;
-                font-size: 1rem;
-                font-weight: bold;
                 border: none;
-                border-radius: 5px;
+                border-radius: 8px;
                 cursor: pointer;
                 transition: transform 0.2s, background 0.3s;
                 text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             }
-        
+
             #contact-form button:hover {
                 background: #ff00ffcc;
                 transform: scale(1.05);
             }
+
+            #contact-form label {
+                text-align: left;
+            }
+
         }
 
         /*****************************************************************
@@ -514,7 +519,7 @@
                 <textarea id="message" name="message" placeholder="Write your inquiry here..." rows="4" required></textarea>
         
                 <!-- Send Message Button -->
-                <button type="submit">Send Inquiry</button>
+                <button type="submit">Send Message</button>
             </form>
         
             <!-- Social Links -->
