@@ -36,86 +36,92 @@
         /*****************************************************************
          * NAVIGATION
          *****************************************************************/
+        /* Container for the entire nav bar */
+        nav.container-fluid {
+            background: #1a1a1a;
+            position: relative;
+            padding: 0; /* Let .nav-container handle spacing */
+        }
         
-        /* Make the navbar fixed at the top */
+        /* Horizontal container to hold brand & nav links side-by-side */
         .nav-container {
-            position: fixed;  /* Sticks the nav bar to the top */
-            top: 0;
-            left: 0;
-            width: 100%;  /* Stretch across the screen */
-            background: #1a1a1a;  /* Background for visibility */
-            z-index: 1000;  /* Ensures it stays on top */
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between;  /* brand on left, links on right */
             align-items: center;
             padding: 1rem;
+            position: relative;
         }
         
-        /* Ensure brand stays on the left */
+        /* Brand Name (top-left corner) */
         .nav-container strong {
-            margin-left: 1rem;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
         }
         
-        /* Ensure navigation links are positioned correctly */
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            margin-right: 1rem;
-        }
-        
-        /* Sticky Hamburger Menu Button - Top Right */
+        /* Hamburger Menu Button (hidden on desktop) */
         .menu-toggle {
             display: none;
-            position: fixed;  /* Keep it pinned to the viewport */
-            top: 1rem;
-            right: 1rem;
             background: none;
             border: none;
             font-size: 24px;
             color: #f8f8f8;
             cursor: pointer;
-            z-index: 1100;  /* Ensure it stays above everything */
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
         }
         
-        /* Mobile Styles */
+        /* Navigation Links (desktop default) */
+        .nav-links {
+            display: flex;        /* show in a row on desktop */
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-right: 1rem;   /* push them away from the right edge */
+        }
+        
+        /* Nav Links Styles */
+        .nav-links a {
+            color: #f8f8f8;
+            text-decoration: none;
+        }
+
+        /* MOBILE STYLES */
         @media (max-width: 768px) {
-            /* Show hamburger on mobile */
+            /* Show hamburger, hide nav links initially */
             .menu-toggle {
                 display: block;
             }
-        
-            /* Initially hide nav links */
+            
             .nav-links {
-                display: none;
+                display: none;      /* hidden by default on mobile */
                 flex-direction: column;
                 align-items: center;
                 background: #1a1a1a;
                 position: absolute;
-                top: 60px;  /* Just below the fixed nav */
+                top: 60px;    /* just below the nav container */
                 right: 0;
                 width: 100%;
                 padding: 1rem 0;
                 text-align: center;
                 box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
             }
-        
-            /* Show the menu when active */
+            
+            /* When active, show the nav links */
             .nav-links.active {
                 display: flex;
             }
         }
         
-        /* Desktop Styles */
+        /* DESKTOP STYLES */
         @media (min-width: 769px) {
-            /* Hide hamburger menu on desktop */
+            /* No hamburger on desktop */
             .menu-toggle {
                 display: none;
             }
-        
-            /* Keep nav links in a row on desktop */
+            
+            /* Always display nav links in a row on desktop */
             .nav-links {
                 display: flex;
                 position: static;
