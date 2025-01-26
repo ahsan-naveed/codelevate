@@ -20,8 +20,15 @@
             color: white;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
         .hero img {
-            max-width: 50%;
+            width: 200px; /* Adjust the size */
+            height: auto;
             border-radius: 10px;
             margin-top: 1rem;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
@@ -58,6 +65,22 @@
             background: #ff00ffcc;
             transform: scale(1.1);
         }
+
+        /* Enhanced Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff00ff, #00ffff);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
         .timeline ul {
             list-style: none;
             padding: 0;
@@ -66,9 +89,21 @@
             background: #1a1a1a;
             padding: 1rem;
             margin: 1rem 0;
-            border-left: 5px solid #00ffff;
+            border-radius: 8px;
+            position: relative;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
+        .timeline li::before {
+            content: '•';
+            position: absolute;
+            left: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -89,7 +124,9 @@
     <header>
         <h1>COD/ELEVATE</h1>
         <h3>Your Guide to Programming & Career Success</h3>
-        <img src="logo.webp" alt="Student coding">
+        <div class="hero">
+            <img src="DALL·E 2025-01-25 23.23.58 - A simple cartoon-style illustration of a student coding on a laptop, using a cyber-inspired color scheme. The background is dark (#0d0d0d) with floati.webp" alt="Student coding">
+        </div>
     </header>
     <main class="container">
         <section id="about">
