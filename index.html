@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags to ensure responsiveness on mobile devices -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Ahsan Naveed - COD/ELEVATE</title>
+
+    <!-- Pico CSS for minimal, modern styling -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <!-- Inline Styles for custom look & feel -->
     <style>
+        /* Google Font for futuristic style */
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        /* Global styles */
         body {
             background: #0d0d0d;
             color: #f8f8f8;
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
+            margin: 0; /* Remove default body margin for consistent layout */
         }
+
+        /* Header Styles */
         header {
             text-align: center;
             padding: 3rem 1rem;
@@ -21,8 +33,7 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
-
-        /* Navigation Bar */
+        /* Navigation Bar Container */
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -31,6 +42,7 @@
             position: relative;
         }
         
+        /* Navigation Links (desktop & mobile default) */
         .nav-links {
             display: flex;
             gap: 1.5rem;
@@ -53,15 +65,17 @@
                 box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
                 transition: max-height 0.3s ease-in-out;
             }
-        
+
+            /* Show nav-links when hovering over nav-container or nav-links */
             .nav-container:hover + .nav-links,
             .nav-links:hover {
                 max-height: 500px;
             }
         }
         
-        /* Mobile Styles */
+        /* Mobile Menu Styles */
         @media (max-width: 768px) {
+            /* Hamburger Button */
             .menu-toggle {
                 display: block;
                 background: none;
@@ -74,6 +88,7 @@
                 top: 1rem;
             }
         
+            /* Collapsed nav-links by default */
             .nav-links {
                 display: flex;
                 flex-direction: column;
@@ -91,12 +106,13 @@
                 transition: max-height 0.3s ease-in-out;
             }
         
+            /* Expanded nav-links when toggled */
             .nav-links.active {
                 max-height: 400px;
             }
         }
         
-        
+        /* Hero Section */
         .hero {
             display: flex;
             justify-content: center;
@@ -116,12 +132,15 @@
             box-shadow: 0 0 40px rgba(255, 0, 255, 1), 0 0 70px rgba(0, 255, 255, 0.8);
         }
         
+        /* Section Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 3rem;
         }
+
+        /* Card Styles */
         .card {
             padding: 2rem;
             background: #1a1a1a;
@@ -134,6 +153,8 @@
             transform: scale(1.1);
             box-shadow: 0 0 25px rgba(0, 255, 255, 1);
         }
+
+        /* Button Styles */
         button {
             background: #ff00ff;
             color: white;
@@ -149,6 +170,7 @@
             transform: scale(1.1);
         }
 
+        /* Timeline Section */
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -186,46 +208,7 @@
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
 
-/*         .roadmap {
-            position: relative;
-            max-width: 800px;
-            margin: 3rem auto;
-            padding-left: 30px;
-        }
-        .roadmap::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10px;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #ff00ff, #00ffff);
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-        }
-        .roadmap-step {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 20px;
-        }
-        .roadmap-step::before {
-            content: '';
-            position: absolute;
-            left: -16px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            background: #00ffff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 1);
-        } 
-        .roadmap-content {
-            background: #1a1a1a;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        }
- */
-
+        /* Roadmap Section */
         .roadmap-container {
             display: flex;
             justify-content: center;
@@ -291,9 +274,8 @@
                 background: linear-gradient(180deg, #ff00ff, #00ffff);
             }
         }
-        
 
-
+        /* Footer Styles */
         footer {
             text-align: center;
             padding: 2rem;
@@ -303,14 +285,8 @@
     </style>
 </head>
 <body>
-<!--     <nav class="container-fluid">
-        <ul><li><strong>Ahsan Naveed</strong></li></ul>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact" role="button">Contact</a></li>
-        </ul>
-    </nav> -->
+
+    <!-- Navigation -->
     <nav class="container-fluid">
         <div class="nav-container">
             <strong>Ahsan Naveed</strong>
@@ -326,7 +302,7 @@
         </ul>
     </nav>
 
-
+    <!-- Header / Hero -->
     <header>
         <h1>COD/ELEVATE</h1>
         <h3>Your Guide to Programming & Career Success</h3>
@@ -334,10 +310,15 @@
             <img src="logo2.webp" alt="Student coding">
         </div>
     </header>
+
+    <!-- Main Content -->
     <main class="container">
+        <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
             <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
+            
+            <!-- Career Timeline -->
             <div class="timeline">
                 <h3>Career Timeline</h3>
                 <ul>
@@ -350,6 +331,7 @@
             </div>
         </section>
         
+        <!-- Services Section -->
         <section id="services">
             <h2>My Services</h2>
             <div class="grid">
@@ -368,6 +350,7 @@
             </div>
         </section>
 
+        <!-- How It Works Section / Roadmap -->
         <section id="how-it-works">
             <h2>How This Works</h2>
             <p>My mentorship follows a structured roadmap to help you succeed.</p>
@@ -401,47 +384,8 @@
                 </div>
             </div>
         </section>
-
-        
-<!--         <section id="how-it-works">
-            <h2>How This Works</h2>
-            <p>My mentorship follows a structured approach, guiding you step by step.</p>
-        
-            <div class="roadmap">
-                <div class="roadmap-step">
-                    <div class="roadmap-content">
-                        <h3>Step 1: Choose Your Path</h3>
-                        <p>Select mentorship in programming, cloud computing, or career coaching.</p>
-                    </div>
-                </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-content">
-                        <h3>Step 2: Schedule a Session</h3>
-                        <p>Book a one-on-one session tailored to your needs.</p>
-                    </div>
-                </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-content">
-                        <h3>Step 3: Hands-on Learning</h3>
-                        <p>Work on real-world projects, coding exercises, and industry best practices.</p>
-                    </div>
-                </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-content">
-                        <h3>Step 4: Get Feedback & Improve</h3>
-                        <p>Receive expert feedback on coding, resumes, and job applications.</p>
-                    </div>
-                </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-content">
-                        <h3>Step 5: Achieve Your Goals</h3>
-                        <p>Land your dream job, ace coding interviews, or contribute to open-source.</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
     
+        <!-- Pricing Section -->
         <section id="pricing">
             <h2>Pricing Plans</h2>
             <div class="grid">
@@ -463,6 +407,7 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact">
             <h2>Contact Me</h2>
             <form class="grid">
@@ -473,26 +418,28 @@
             <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer>
         <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
     </footer>
 
-<script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked (for mobile users)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.classList.remove('active');
+        // Toggle the "active" class to open/close the mobile menu
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
         });
-    });
-</script>
 
-
+        // Close menu when a link is clicked (for mobile users)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
