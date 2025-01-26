@@ -110,7 +110,7 @@
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
 
-        .roadmap {
+/*         .roadmap {
             position: relative;
             max-width: 800px;
             margin: 3rem auto;
@@ -147,6 +147,52 @@
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+ */
+
+        .roadmap-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .roadmap {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+        }
+        
+        .step {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .step-content {
+            color: #00ffff;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .step:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+        }
+        
+        .connector {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
 
 
@@ -207,8 +253,53 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="how-it-works">
+            <h2>How This Works</h2>
+            <p>My mentorship follows a structured roadmap to help you succeed.</p>
+        
+            <div class="roadmap-container">
+                <div class="roadmap">
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>Step 1</h3>
+                            <p>Choose Your Path</p>
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>Step 2</h3>
+                            <p>Schedule a Session</p>
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>Step 3</h3>
+                            <p>Hands-on Learning</p>
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>Step 4</h3>
+                            <p>Get Feedback & Improve</p>
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>Step 5</h3>
+                            <p>Achieve Your Goals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+<!--         <section id="how-it-works">
             <h2>How This Works</h2>
             <p>My mentorship follows a structured approach, guiding you step by step.</p>
         
@@ -244,11 +335,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
     
         <section id="pricing">
-            <h2>💰 Pricing Plans</h2>
+            <h2>Pricing Plans</h2>
             <div class="grid">
                 <div class="card">
                     <h3>1-Hour Mentorship Session</h3>
