@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic Meta Tags for Responsive Design -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <!-- Required meta tags for responsiveness on mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Ahsan Naveed - COD/ELEVATE</title>
-
-    <!-- Pico CSS for Minimal Styling -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
-    />
-
-    <!-- Orbitron Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
-        rel="stylesheet"
-    />
-
-    <!-- Custom CSS -->
+    
+    <!-- Pico CSS for minimal styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    
+    <!-- Custom Fonts & Styles -->
     <style>
-        /* Global Styles */
+        /* Import the Orbitron font for a futuristic style */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        /* Global Styling */
         body {
-            margin: 0;
             background: #0d0d0d;
             color: #f8f8f8;
-            font-family: "Orbitron", sans-serif;
+            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
+            margin: 0; /* remove default browser margin */
         }
-
-        /* Header */
+        
+        /* Header Styles */
         header {
             text-align: center;
             padding: 3rem 1rem;
@@ -39,21 +33,32 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
-        /* Navigation */
+        /*****************************************************************
+         * NAVIGATION
+         *****************************************************************/
+        /* Container for the entire nav bar */
         nav.container-fluid {
             background: #1a1a1a;
+            position: relative;
+            padding: 0; /* Let .nav-container handle spacing */
         }
+        
+        /* Horizontal container to hold brand & nav links side-by-side */
         .nav-container {
             display: flex;
+            justify-content: space-between;  /* brand on left, links on right */
             align-items: center;
-            justify-content: space-between; /* brand on the left, nav + hamburger on the right */
             padding: 1rem;
             position: relative;
         }
+        
+        /* Brand Name (top-left corner) */
         .nav-container strong {
             font-size: 1.2rem;
-            color: #f8f8f8;
+            margin-left: 0.5rem;
         }
+        
+        /* Hamburger Menu Button (hidden on desktop) */
         .menu-toggle {
             display: none;
             background: none;
@@ -61,54 +66,74 @@
             font-size: 24px;
             color: #f8f8f8;
             cursor: pointer;
+            /* Place it in the top-right corner of the nav-container */
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
         }
+        
+        /* Navigation Links (desktop default) */
         .nav-links {
-            display: flex;
+            display: flex;        /* show in a row on desktop */
             gap: 1.5rem;
             list-style: none;
             margin: 0;
             padding: 0;
+            margin-right: 1rem;   /* push them away from the right edge */
         }
-        .nav-links li a {
+        
+        /* Nav Links Styles */
+        .nav-links a {
             color: #f8f8f8;
             text-decoration: none;
         }
 
-        /* Mobile Navigation */
+        /* MOBILE STYLES */
         @media (max-width: 768px) {
+            /* Show hamburger, hide nav links initially */
             .menu-toggle {
-                display: block; /* Show hamburger on mobile */
+                display: block;
             }
+            
             .nav-links {
-                display: none; /* Hidden until toggled */
+                display: none;      /* hidden by default on mobile */
                 flex-direction: column;
                 align-items: center;
                 background: #1a1a1a;
                 position: absolute;
-                top: 60px;
+                top: 60px;    /* just below the nav container */
                 right: 0;
                 width: 100%;
                 padding: 1rem 0;
                 text-align: center;
                 box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
             }
+            
+            /* When active, show the nav links */
             .nav-links.active {
                 display: flex;
             }
         }
-
-        /* Desktop Navigation */
+        
+        /* DESKTOP STYLES */
         @media (min-width: 769px) {
+            /* No hamburger on desktop */
             .menu-toggle {
-                display: none; /* Hide hamburger on desktop */
+                display: none;
             }
+            
+            /* Always display nav links in a row on desktop */
             .nav-links {
                 display: flex;
                 position: static;
+                width: auto;
+                box-shadow: none;
             }
         }
 
-        /* Hero Section */
+        /*****************************************************************
+         * HERO
+         *****************************************************************/
         .hero {
             display: flex;
             justify-content: center;
@@ -120,23 +145,24 @@
             height: auto;
             border-radius: 10px;
             margin-top: 1rem;
-            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7),
-                        0 0 50px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7), 0 0 50px rgba(0, 255, 255, 0.5);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .hero img:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 40px rgba(255, 0, 255, 1),
-                        0 0 70px rgba(0, 255, 255, 0.8);
+            box-shadow: 0 0 40px rgba(255, 0, 255, 1), 0 0 70px rgba(0, 255, 255, 0.8);
         }
-
-        /* Grid and Cards */
+        
+        /*****************************************************************
+         * GRID, CARDS, BUTTONS
+         *****************************************************************/
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 3rem;
         }
+        
         .card {
             padding: 2rem;
             background: #1a1a1a;
@@ -149,8 +175,7 @@
             transform: scale(1.1);
             box-shadow: 0 0 25px rgba(0, 255, 255, 1);
         }
-
-        /* Buttons */
+        
         button {
             background: #ff00ff;
             color: white;
@@ -166,7 +191,9 @@
             transform: scale(1.1);
         }
 
-        /* Timeline */
+        /*****************************************************************
+         * TIMELINE
+         *****************************************************************/
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -204,7 +231,9 @@
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
 
-        /* Roadmap */
+        /*****************************************************************
+         * ROADMAP
+         *****************************************************************/
         .roadmap-container {
             display: flex;
             justify-content: center;
@@ -253,6 +282,7 @@
             background: linear-gradient(90deg, #ff00ff, #00ffff);
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
+        
         @media (max-width: 768px) {
             .roadmap {
                 flex-direction: column;
@@ -263,8 +293,8 @@
                 background: linear-gradient(180deg, #ff00ff, #00ffff);
             }
         }
-
-        /* Footer */
+        
+        /* Footer Styles */
         footer {
             text-align: center;
             padding: 2rem;
@@ -275,46 +305,42 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION (keeps original structure, but improved layout) -->
     <nav class="container-fluid">
         <div class="nav-container">
-            <!-- Brand (top-left) -->
+            <!-- Brand on the LEFT -->
             <strong>Ahsan Naveed</strong>
 
-            <!-- Nav Links (top-right on desktop, hidden on mobile) -->
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <!-- Hamburger (visible only on mobile) -->
+            <!-- Hamburger button (only visible on mobile) -->
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
         </div>
+
+        <!-- Nav links (right corner on desktop, collapsible on mobile) -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Header / Hero -->
+    <!-- HEADER -->
     <header>
         <h1>COD/ELEVATE</h1>
         <h3>Your Guide to Programming & Career Success</h3>
         <div class="hero">
-            <img src="logo2.webp" alt="Student coding" />
+            <img src="logo2.webp" alt="Student coding">
         </div>
     </header>
 
-    <!-- Main Content Container -->
+    <!-- MAIN CONTENT -->
     <main class="container">
         <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p>
-                I'm Ahsan Naveed, a software engineer with extensive experience in
-                cloud computing, distributed systems, and backend development. I enjoy
-                mentoring CS students and helping them advance in their careers.
-            </p>
+            <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
             <div class="timeline">
                 <h3>Career Timeline</h3>
                 <ul>
@@ -326,7 +352,7 @@
                 </ul>
             </div>
         </section>
-
+        
         <!-- Services Section -->
         <section id="services">
             <h2>My Services</h2>
@@ -346,7 +372,7 @@
             </div>
         </section>
 
-        <!-- Roadmap Section -->
+        <!-- How It Works (Roadmap) -->
         <section id="how-it-works">
             <h2>How This Works</h2>
             <p>My mentorship follows a structured roadmap to help you succeed.</p>
@@ -406,16 +432,11 @@
         <section id="contact">
             <h2>Contact Me</h2>
             <form class="grid">
-                <input type="text" name="name" placeholder="Your Name" required />
-                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
                 <button type="submit" onclick="event.preventDefault()">Send Message</button>
             </form>
-            <p>
-                Connect with me on
-                <a href="https://linkedin.com/in/ahsannaveed" target="_blank" rel="noopener noreferrer"
-                  >LinkedIn</a
-                >
-            </p>
+            <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
         </section>
     </main>
 
@@ -424,20 +445,22 @@
         <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
     </footer>
 
-    <!-- JavaScript for Menu Toggle -->
+    <!-- JavaScript for Mobile Menu Toggle -->
     <script>
-      const menuToggle = document.querySelector(".menu-toggle");
-      const navLinks = document.querySelector(".nav-links");
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
+        // Toggle .active on nav-links when hamburger is clicked
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-      });
+
+        // Close menu when a link is clicked (on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
