@@ -1,478 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Required meta tags for responsiveness on mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Ahsan Naveed - COD/ELEVATE</title>
+    
+    <!-- Pico CSS for minimal styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    
+    <!-- Custom Fonts & Styles -->
+    <style>
+        /* Import the Orbitron font for a futuristic style */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-  <title>Ahsan Naveed - COD/ELEVATE</title>
+        /* Global Styling */
+        body {
+            background: #0d0d0d;
+            color: #f8f8f8;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            margin: 0; /* remove default browser margin */
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
 
-  <!-- Pico CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
-/>
-  <!-- Orbitron Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
-    rel="stylesheet"
-/>
+        /*****************************************************************
+         * NAVIGATION
+         *****************************************************************/
+        /* Container for the entire nav bar */
+        nav.container-fluid {
+            background: #1a1a1a;
+            position: relative;
+            padding: 0; /* Let .nav-container handle spacing */
+        }
+        
+        /* Horizontal container to hold brand & nav links side-by-side */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;  /* brand on left, links on right */
+            align-items: center;
+            padding: 1rem;
+            position: relative;
+        }
+        
+        /* Brand Name (top-left corner) */
+        .nav-container strong {
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+        
+        /* Hamburger Menu Button (hidden on desktop) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #f8f8f8;
+            cursor: pointer;
+            /* Place it in the top-right corner of the nav-container */
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+        
+        /* Navigation Links (desktop default) */
+        .nav-links {
+            display: flex;        /* show in a row on desktop */
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-right: 1rem;   /* push them away from the right edge */
+        }
+        
+        /* Nav Links Styles */
+        .nav-links a {
+            color: #f8f8f8;
+            text-decoration: none;
+        }
 
-  <!-- Custom Styles -->
-  <style>
-    /***********************************************************************
-     * GLOBAL STYLES
-     ***********************************************************************/
-    body {
-      margin: 0; /* Remove default margin for consistent layout */
-      background: #0d0d0d;
-      color: #f8f8f8;
-      font-family: "Orbitron", sans-serif;
-      text-transform: uppercase;
-    }
+        /* MOBILE STYLES */
+        @media (max-width: 768px) {
+            /* Show hamburger, hide nav links initially */
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;      /* hidden by default on mobile */
+                flex-direction: column;
+                align-items: center;
+                background: #1a1a1a;
+                position: absolute;
+                top: 60px;    /* just below the nav container */
+                right: 0;
+                width: 100%;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            }
+            
+            /* When active, show the nav links */
+            .nav-links.active {
+                display: flex;
+            }
+        }
+        
+        /* DESKTOP STYLES */
+        @media (min-width: 769px) {
+            /* No hamburger on desktop */
+            .menu-toggle {
+                display: none;
+            }
+            
+            /* Always display nav links in a row on desktop */
+            .nav-links {
+                display: flex;
+                position: static;
+                width: auto;
+                box-shadow: none;
+            }
+        }
 
-    /***********************************************************************
-     * NAVIGATION
-     ***********************************************************************/
-    nav {
-      background: #1a1a1a;
-    }
-    .nav-wrapper {
-      /* Centers the nav and limits its max width */
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-      position: relative;
-    }
-    /* Brand on the left */
-    .nav-brand {
-      color: #f8f8f8;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    /* Hamburger menu button: hidden on desktop */
-    .menu-toggle {
-      margin-left: auto; /* push hamburger to right side */
-      background: none;
-      border: none;
-      font-size: 24px;
-      color: #f8f8f8;
-      display: none; /* only appears on mobile below */
-      cursor: pointer;
-    }
-    /* Nav links in a row on desktop */
-    .nav-links {
-      list-style: none;
-      display: flex; /* default: show them in a row on desktop */
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-links li a {
-      color: #f8f8f8;
-      text-decoration: none;
-    }
+        /*****************************************************************
+         * HERO
+         *****************************************************************/
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hero img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 1rem;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7), 0 0 50px rgba(0, 255, 255, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .hero img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 0, 255, 1), 0 0 70px rgba(0, 255, 255, 0.8);
+        }
+        
+        /*****************************************************************
+         * GRID, CARDS, BUTTONS
+         *****************************************************************/
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+        }
+        
+        .card {
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+        }
+        
+        button {
+            background: #ff00ff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        button:hover {
+            background: #ff00ffcc;
+            transform: scale(1.1);
+        }
 
-    /* MEDIA QUERIES */
-    @media (max-width: 768px) {
-      /* Show hamburger, hide link row by default */
-      .menu-toggle {
-        display: block; /* show hamburger on mobile */
-      }
-      .nav-links {
-        display: none; /* hide on mobile until toggled */
-        position: absolute;
-        top: 65px; /* below the nav bar */
-        right: 1rem;
-        flex-direction: column;
-        background: #1a1a1a;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        padding: 1rem;
-        gap: 1rem;
-      }
-      /* When .active, show the nav links */
-      .nav-links.active {
-        display: flex;
-      }
-    }
+        /*****************************************************************
+         * TIMELINE
+         *****************************************************************/
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff00ff, #00ffff);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+        .timeline ul {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline li {
+            background: #1a1a1a;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        .timeline li::before {
+            content: '•';
+            position: absolute;
+            left: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
 
-    @media (min-width: 769px) {
-      /* On desktop, hamburger stays hidden */
-      .menu-toggle {
-        display: none;
-      }
-      /* Keep nav links displayed */
-      .nav-links {
-        display: flex;
-        margin-left: auto; /* push them to the far right */
-      }
-    }
-
-    /***********************************************************************
-     * HEADER / HERO
-     ***********************************************************************/
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, #ff00ff, #00ffff);
-      color: #fff;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    }
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .hero img {
-      width: 300px;
-      height: auto;
-      border-radius: 10px;
-      margin-top: 1rem;
-      box-shadow: 0 0 25px rgba(255, 0, 255, 0.7),
-        0 0 50px rgba(0, 255, 255, 0.5);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-    .hero img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 40px rgba(255, 0, 255, 1),
-        0 0 70px rgba(0, 255, 255, 0.8);
-    }
-
-    /***********************************************************************
-     * MAIN CONTENT
-     ***********************************************************************/
-    main.container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem; /* some spacing around content */
-    }
-
-    /* Grid layout for card sections */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 3rem 0;
-    }
-
-    .card {
-      padding: 2rem;
-      background: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-    .card:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 1);
-    }
-
-    button {
-      background: #ff00ff;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-    button:hover {
-      background: #ff00ffcc;
-      transform: scale(1.1);
-    }
-
-    /***********************************************************************
-     * TIMELINE
-     ***********************************************************************/
-    .timeline {
-      position: relative;
-      padding-left: 30px;
-    }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 10px;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #ff00ff, #00ffff);
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-    }
-    .timeline ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .timeline li {
-      background: #1a1a1a;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      position: relative;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    }
-    .timeline li::before {
-      content: "•";
-      position: absolute;
-      left: -22px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
-      color: #00ffff;
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-    }
-
-    /***********************************************************************
-     * ROADMAP
-     ***********************************************************************/
-    .roadmap-container {
-      display: flex;
-      justify-content: center;
-      margin: 3rem 0;
-    }
-    .roadmap {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .step {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      background: #1a1a1a;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      padding: 10px;
-    }
-    .step h3 {
-      margin: 0;
-      font-size: 24px;
-      color: #00ffff;
-    }
-    .step p {
-      margin: 0;
-      font-size: 12px;
-      color: #f8f8f8;
-    }
-    .step:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 1);
-    }
-    .connector {
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, #ff00ff, #00ffff);
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-    }
-    @media (max-width: 768px) {
-      .roadmap {
-        flex-direction: column;
-      }
-      .connector {
-        width: 4px;
-        height: 40px;
-        background: linear-gradient(180deg, #ff00ff, #00ffff);
-      }
-    }
-
-    /***********************************************************************
-     * FOOTER
-     ***********************************************************************/
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: linear-gradient(135deg, #ff00ff, #00ffff);
-      color: white;
-    }
-  </style>
+        /*****************************************************************
+         * ROADMAP
+         *****************************************************************/
+        .roadmap-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .roadmap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .step {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px;
+        }
+        .step h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #00ffff;
+        }
+        .step p {
+            margin: 0;
+            font-size: 12px;
+            color: #f8f8f8;
+            text-transform: uppercase;
+        }
+        .step:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+        }
+        .connector {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 768px) {
+            .roadmap {
+                flex-direction: column;
+            }
+            .connector {
+                width: 4px;
+                height: 40px;
+                background: linear-gradient(180deg, #ff00ff, #00ffff);
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-wrapper">
-      <!-- Brand on the left -->
-      <a href="#" class="nav-brand">Ahsan Naveed</a>
+    <!-- NAVIGATION (keeps original structure, but improved layout) -->
+    <nav class="container-fluid">
+        <div class="nav-container">
+            <!-- Brand on the LEFT -->
+            <strong>Ahsan Naveed</strong>
 
-      <!-- Hamburger button (visible on mobile only) -->
-      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <!-- Hamburger button (only visible on mobile) -->
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
 
-      <!-- Navigation links -->
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- HEADER / HERO -->
-  <header>
-    <h1>COD/ELEVATE</h1>
-    <h3>Your Guide to Programming & Career Success</h3>
-    <div class="hero">
-      <img src="logo2.webp" alt="Student coding">
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main class="container">
-    <!-- ABOUT SECTION -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
-      <div class="timeline">
-        <h3>Career Timeline</h3>
-        <ul>
-          <li><strong>2023 - Present:</strong> Senior Software Engineer, Huawei</li>
-          <li><strong>2020 - 2023:</strong> Software Engineer, AWS</li>
-          <li><strong>2020:</strong> Software Engineer, Cisco</li>
-          <li><strong>2019 - 2020:</strong> Software Engineer, EA Sports</li>
-          <li><strong>Internships:</strong> LinkedIn, Tesla, IBM, BlackBerry</li>
+        <!-- Nav links (right corner on desktop, collapsible on mobile) -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
-    </section>
+    </nav>
 
-    <!-- SERVICES SECTION -->
-    <section id="services">
-      <h2>My Services</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Programming Help</h3>
-          <p>Expert assistance in Java, Python, C++, and more.</p>
+    <!-- HEADER -->
+    <header>
+        <h1>COD/ELEVATE</h1>
+        <h3>Your Guide to Programming & Career Success</h3>
+        <div class="hero">
+            <img src="logo2.webp" alt="Student coding">
         </div>
-        <div class="card">
-          <h3>Career Coaching</h3>
-          <p>Resume reviews, mock interviews, and LinkedIn guidance.</p>
-        </div>
-        <div class="card">
-          <h3>Open Source Mentorship</h3>
-          <p>Start contributing to GitHub projects and best practices.</p>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- HOW IT WORKS (ROADMAP) -->
-    <section id="how-it-works">
-      <h2>How This Works</h2>
-      <p>My mentorship follows a structured roadmap to help you succeed.</p>
-      <div class="roadmap-container">
-        <div class="roadmap">
-          <div class="step">
-            <h3>1</h3>
-            <p>Choose Your Path</p>
-          </div>
-          <div class="connector"></div>
-          <div class="step">
-            <h3>2</h3>
-            <p>Schedule a Session</p>
-          </div>
-          <div class="connector"></div>
-          <div class="step">
-            <h3>3</h3>
-            <p>Hands-on Learning</p>
-          </div>
-          <div class="connector"></div>
-          <div class="step">
-            <h3>4</h3>
-            <p>Get Feedback</p>
-          </div>
-          <div class="connector"></div>
-          <div class="step">
-            <h3>5</h3>
-            <p>Achieve Goals</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm Ahsan Naveed, a software engineer with extensive experience in cloud computing, distributed systems, and backend development. I enjoy mentoring CS students and helping them advance in their careers.</p>
+            <div class="timeline">
+                <h3>Career Timeline</h3>
+                <ul>
+                    <li><strong>2023 - Present:</strong> Senior Software Engineer, Huawei</li>
+                    <li><strong>2020 - 2023:</strong> Software Engineer, AWS</li>
+                    <li><strong>2020:</strong> Software Engineer, Cisco</li>
+                    <li><strong>2019 - 2020:</strong> Software Engineer, EA Sports</li>
+                    <li><strong>Internships:</strong> LinkedIn, Tesla, IBM, BlackBerry</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services">
+            <h2>My Services</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Programming Help</h3>
+                    <p>Expert assistance in Java, Python, C++, and more.</p>
+                </div>
+                <div class="card">
+                    <h3>Career Coaching</h3>
+                    <p>Resume reviews, mock interviews, and LinkedIn guidance.</p>
+                </div>
+                <div class="card">
+                    <h3>Open Source Mentorship</h3>
+                    <p>Start contributing to GitHub projects and best practices.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- PRICING SECTION -->
-    <section id="pricing">
-      <h2>Pricing Plans</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>1-Hour Mentorship Session</h3>
-          <p>Get expert guidance on programming, cloud computing, or career coaching.</p>
-          <strong>PKR 20,000</strong>
-        </div>
-        <div class="card">
-          <h3>5-Hour Package (Save 10%)</h3>
-          <p>Ideal for long-term mentorship and deeper technical learning.</p>
-          <strong>PKR 90,000</strong>
-        </div>
-        <div class="card">
-          <h3>Monthly Plan (Best Value)</h3>
-          <p>Custom pricing for ongoing career mentorship &amp; technical training.</p>
-          <strong>Contact for Details</strong>
-        </div>
-      </div>
-    </section>
+        <!-- How It Works (Roadmap) -->
+        <section id="how-it-works">
+            <h2>How This Works</h2>
+            <p>My mentorship follows a structured roadmap to help you succeed.</p>
+            <div class="roadmap-container">
+                <div class="roadmap">
+                    <div class="step">
+                        <h3>1</h3>
+                        <p>Choose Your Path</p>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <h3>2</h3>
+                        <p>Schedule a Session</p>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <h3>3</h3>
+                        <p>Hands-on Learning</p>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <h3>4</h3>
+                        <p>Get Feedback</p>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step">
+                        <h3>5</h3>
+                        <p>Achieve Goals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form class="grid">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        />
-        <button
-          type="submit"
-          onclick="event.preventDefault()"
-        >
-          Send Message
-        </button>
-      </form>
-      <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
-    </section>
-  </main>
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <h2>Pricing Plans</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1-Hour Mentorship Session</h3>
+                    <p>Get expert guidance on programming, cloud computing, or career coaching.</p>
+                    <strong>PKR 20,000</strong>
+                </div>
+                <div class="card">
+                    <h3>5-Hour Package (Save 10%)</h3>
+                    <p>Ideal for long-term mentorship and deeper technical learning.</p>
+                    <strong>PKR 90,000</strong>
+                </div>
+                <div class="card">
+                    <h3>Monthly Plan (Best Value)</h3>
+                    <p>Custom pricing for ongoing career mentorship &amp; technical training.</p>
+                    <strong>Contact for Details</strong>
+                </div>
+            </div>
+        </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
-  </footer>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form class="grid">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit" onclick="event.preventDefault()">Send Message</button>
+            </form>
+            <p>Connect with me on <a href="https://linkedin.com/in/ahsannaveed" target="_blank">LinkedIn</a></p>
+        </section>
+    </main>
 
-  <!-- JavaScript for Menu Toggle -->
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    <!-- Footer -->
+    <footer>
+        <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
+    </footer>
 
-    // Toggle the .active class on nav-links when hamburger is clicked
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-    // Close the menu if a link is clicked (mobile)
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-      });
-    });
-  </script>
+        // Toggle .active on nav-links when hamburger is clicked
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
