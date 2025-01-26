@@ -93,6 +93,7 @@
             .menu-toggle {
                 display: block;
                 position: relative;
+                top: 0rem;
                 left: 6rem;
                 width: min-content;
             }
@@ -130,6 +131,61 @@
                 position: static;
                 width: auto;
                 box-shadow: none;
+            }
+
+
+            /* Contact form */
+            #contact {
+                max-width: 600px;  /* Restrict form width on large screens */
+                margin: 0 auto;  /* Center form horizontally */
+                padding: 2rem;  /* Add space around the form */
+                text-align: center;  /* Center headings */
+            }
+        
+            /* Contact Form Layout for Desktop */
+            #contact-form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;  /* Two columns */
+                gap: 1rem;  /* Spacing between fields */
+                align-items: center;
+            }
+        
+            /* Make message input span both columns */
+            #contact-form textarea {
+                grid-column: span 2;
+            }
+        
+            /* Full width for inputs */
+            #contact-form input,
+            #contact-form select,
+            #contact-form textarea {
+                width: 100%;
+                padding: 0.8rem;
+                border: 1px solid #444;
+                border-radius: 5px;
+                font-size: 1rem;
+                background: #111;
+                color: #f8f8f8;
+            }
+        
+            /* Adjust button styling */
+            #contact-form button {
+                grid-column: span 2;  /* Make button full-width */
+                padding: 1rem;
+                background: #ff00ff;
+                color: white;
+                font-size: 1rem;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: transform 0.2s, background 0.3s;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+        
+            #contact-form button:hover {
+                background: #ff00ffcc;
+                transform: scale(1.05);
             }
         }
 
@@ -520,6 +576,9 @@
     
             // Open the user's default email app
             window.location.href = mailtoLink;
+
+            // Clear all fields after submission
+            document.getElementById("contact-form").reset();
         });
     </script>
 </body>
