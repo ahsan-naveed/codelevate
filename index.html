@@ -159,27 +159,37 @@
         .roadmap {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            position: relative;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .step {
             position: relative;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: #1a1a1a;
             border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px;
         }
         
-        .step-content {
+        .step h3 {
+            margin: 0;
+            font-size: 24px;
             color: #00ffff;
-            font-size: 14px;
+        }
+        
+        .step p {
+            margin: 0;
+            font-size: 12px;
+            color: #f8f8f8;
             text-transform: uppercase;
         }
         
@@ -189,10 +199,21 @@
         }
         
         .connector {
-            width: 80px;
+            width: 60px;
             height: 4px;
             background: linear-gradient(90deg, #ff00ff, #00ffff);
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 768px) {
+            .roadmap {
+                flex-direction: column;
+            }
+            .connector {
+                width: 4px;
+                height: 40px;
+                background: linear-gradient(180deg, #ff00ff, #00ffff);
+            }
         }
 
 
@@ -261,38 +282,28 @@
             <div class="roadmap-container">
                 <div class="roadmap">
                     <div class="step">
-                        <div class="step-content">
-                            <h3>Step 1</h3>
-                            <p>Choose Your Path</p>
-                        </div>
+                        <h3>1</h3>
+                        <p>Choose Your Path</p>
                     </div>
                     <div class="connector"></div>
                     <div class="step">
-                        <div class="step-content">
-                            <h3>Step 2</h3>
-                            <p>Schedule a Session</p>
-                        </div>
+                        <h3>2</h3>
+                        <p>Schedule a Session</p>
                     </div>
                     <div class="connector"></div>
                     <div class="step">
-                        <div class="step-content">
-                            <h3>Step 3</h3>
-                            <p>Hands-on Learning</p>
-                        </div>
+                        <h3>3</h3>
+                        <p>Hands-on Learning</p>
                     </div>
                     <div class="connector"></div>
                     <div class="step">
-                        <div class="step-content">
-                            <h3>Step 4</h3>
-                            <p>Get Feedback & Improve</p>
-                        </div>
+                        <h3>4</h3>
+                        <p>Get Feedback</p>
                     </div>
                     <div class="connector"></div>
                     <div class="step">
-                        <div class="step-content">
-                            <h3>Step 5</h3>
-                            <p>Achieve Your Goals</p>
-                        </div>
+                        <h3>5</h3>
+                        <p>Achieve Goals</p>
                     </div>
                 </div>
             </div>
