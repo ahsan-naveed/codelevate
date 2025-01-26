@@ -20,6 +20,67 @@
             color: white;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
+
+
+        /* Navigation Styles */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-links li a {
+            color: #f8f8f8;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #f8f8f8;
+            cursor: pointer;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #1a1a1a;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            }
+        
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+        
+            .menu-toggle {
+                display: block;
+            }
+        
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
         
         .hero {
             display: flex;
@@ -215,6 +276,7 @@
                 background: linear-gradient(180deg, #ff00ff, #00ffff);
             }
         }
+        
 
 
         footer {
@@ -226,14 +288,29 @@
     </style>
 </head>
 <body>
-    <nav class="container-fluid">
+<!--     <nav class="container-fluid">
         <ul><li><strong>Ahsan Naveed</strong></li></ul>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact" role="button">Contact</a></li>
         </ul>
+    </nav> -->
+    <nav class="container-fluid">
+        <div class="nav-container">
+            <strong>Ahsan Naveed</strong>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
+
     <header>
         <h1>COD/ELEVATE</h1>
         <h3>Your Guide to Programming & Career Success</h3>
@@ -383,5 +460,12 @@
     <footer>
         <small>&copy; 2024 Ahsan Naveed • <a href="#">Privacy Policy</a></small>
     </footer>
+
+<script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+</script>
+
 </body>
 </html>
