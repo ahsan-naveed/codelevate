@@ -22,12 +22,13 @@
         }
 
 
-        /* Navigation Styles */
+        /* Navigation Bar */
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
+            position: relative;
         }
         
         .nav-links {
@@ -37,27 +38,46 @@
             padding: 0;
         }
         
-        .nav-links li a {
-            color: #f8f8f8;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
+        /* Desktop Hover Dropdown */
+        @media (min-width: 769px) {
+            .nav-links {
+                position: absolute;
+                background: #1a1a1a;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                max-height: 0;
+                overflow: hidden;
+                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+                transition: max-height 0.3s ease-in-out;
+            }
         
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #f8f8f8;
-            cursor: pointer;
+            .nav-container:hover + .nav-links,
+            .nav-links:hover {
+                max-height: 500px;
+            }
         }
         
         /* Mobile Styles */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #f8f8f8;
+                cursor: pointer;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+        
             .nav-links {
-                display: none;
+                display: flex;
                 flex-direction: column;
+                align-items: center;
                 background: #1a1a1a;
                 position: absolute;
                 top: 60px;
@@ -66,21 +86,16 @@
                 padding: 1rem 0;
                 text-align: center;
                 box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            }
-        
-            .nav-links li {
-                margin: 0.5rem 0;
-            }
-        
-            .menu-toggle {
-                display: block;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
             }
         
             .nav-links.active {
-                display: flex;
+                max-height: 400px;
             }
         }
-
+        
         
         .hero {
             display: flex;
@@ -311,6 +326,7 @@
         </ul>
     </nav>
 
+
     <header>
         <h1>COD/ELEVATE</h1>
         <h3>Your Guide to Programming & Career Success</h3>
@@ -462,10 +478,21 @@
     </footer>
 
 <script>
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-        document.querySelector('.nav-links').classList.toggle('active');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked (for mobile users)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+        });
     });
 </script>
+
 
 </body>
 </html>
