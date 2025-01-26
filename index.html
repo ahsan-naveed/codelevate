@@ -61,8 +61,6 @@
             font-size: 24px;
             color: #f8f8f8;
             cursor: pointer;
-            /* Improvement #1: explicitly mark it as a button */
-            type: button;
         }
         .nav-links {
             display: flex;
@@ -414,13 +412,12 @@
             </form>
             <p>
                 Connect with me on
-                <a
-                  href="https://linkedin.com/in/ahsannaveed"
-                  target="_blank"
-                  rel="noopener noreferrer"  <!-- Improvement #2 -->
+                <a 
+                    href="https://linkedin.com/in/ahsannaveed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >LinkedIn</a
                 >
-                  LinkedIn
-                </a>
             </p>
         </section>
     </main>
@@ -432,18 +429,18 @@
 
     <!-- JavaScript for Menu Toggle -->
     <script>
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navLinks = document.querySelector(".nav-links");
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
 
-        menuToggle.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-        });
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
 
-        navLinks.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            navLinks.classList.remove("active");
-          });
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
         });
+      });
     </script>
 </body>
 </html>
